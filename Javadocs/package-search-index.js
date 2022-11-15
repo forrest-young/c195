@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"qamtwo","l":"control"},{"m":"qamtwo","l":"helper"},{"m":"qamtwo","l":"model"},{"m":"qamtwo","l":"qamtwo.c195"}];updateSearchResults();
