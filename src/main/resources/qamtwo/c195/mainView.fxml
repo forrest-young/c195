@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.MainController">
+    <Tab fx:id="loginTab" closable="false" disable="true" text="Login">
+    </Tab>
+    <Tab fx:id="mainTab" closable="false" text="Main">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <Pane prefHeight="675.0" prefWidth="1100.0">
+                <Label fx:id="custLabel" layoutX="470.0" layoutY="14.0" text="Customers">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+                <TableView fx:id="custTV" layoutX="125.0" layoutY="50.0" prefHeight="175.0" prefWidth="850.0">
+                    <columns>
+                        <TableColumn fx:id="custIdCol" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" style="-fx-alignment: CENTER;" text="ID" />
+                        <TableColumn fx:id="custNameCol" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" style="-fx-alignment: CENTER;" text="Name" />
+                        <TableColumn fx:id="custAddressCol" maxWidth="250.0" minWidth="250.0" prefWidth="250.0" style="-fx-alignment: CENTER;" text="Address" />
+                        <TableColumn fx:id="custPostCol" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" style="-fx-alignment: CENTER;" text="Postal Code" />
+                        <TableColumn fx:id="custPhoneCol" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" style="-fx-alignment: CENTER;" text="Phone" />
+                        <TableColumn fx:id="custDivIdCol" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" style="-fx-alignment: CENTER;" text="Div ID" />
+                        <TableColumn fx:id="custDivCol" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" style="-fx-alignment: CENTER;" text="Division" />
+                    </columns>
+                </TableView>
+                <HBox layoutX="125.0" layoutY="224.0" prefHeight="40.0" prefWidth="800.0">
+                    <Button fx:id="addCust" mnemonicParsing="false" onAction="#addCustHandler" text="Add Customer">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </HBox.margin>
+                    </Button>
+                    <Button fx:id="updtCust" mnemonicParsing="false" onAction="#updtCustHandler" text="Update Customer">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </HBox.margin>
+                    </Button>
+                    <Button fx:id="delCust" mnemonicParsing="false" onAction="#delCustHandler" text="Delete Customer">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </HBox.margin>
+                    </Button>
+                </HBox>
+                <HBox layoutX="330.0" layoutY="325.0" prefHeight="50.0" prefWidth="450.0">
+                    <VBox prefHeight="50.0" prefWidth="100.0">
+                        <RadioButton fx:id="viewAll" mnemonicParsing="false" onAction="#viewAllHandler" selected="true" text="View All">
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </VBox.margin>
+                            <toggleGroup>
+                                <ToggleGroup fx:id="apptFilter" />
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="byCustomer" mnemonicParsing="false" onAction="#byCustomerHandler" text="By Customer" toggleGroup="$apptFilter">
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </VBox.margin>
+                        </RadioButton>
+                    </VBox>
+                    <VBox prefHeight="50.0" prefWidth="100.0">
+                        <RadioButton fx:id="byMonth" mnemonicParsing="false" onAction="#byMonthHandler" prefHeight="17.0" prefWidth="100.0" text="By Month" toggleGroup="$apptFilter">
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </VBox.margin>
+                        </RadioButton>
+                        <RadioButton fx:id="byWeek" mnemonicParsing="false" onAction="#byWeekHandler" prefHeight="17.0" prefWidth="117.0" text="By Week" toggleGroup="$apptFilter">
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </VBox.margin>
+                        </RadioButton>
+                    </VBox>
+                    <DatePicker fx:id="datePicker" onAction="#datePicked">
+                        <HBox.margin>
+                            <Insets left="30.0" top="15.0" />
+                        </HBox.margin>
+                    </DatePicker>
+                </HBox>
+                <TableView fx:id="apptTV" layoutX="50.0" layoutY="382.0" prefHeight="200.0" prefWidth="1000.0">
+                    <columns>
+                        <TableColumn fx:id="apptIdCol" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" style="-fx-alignment: CENTER;" text="ID" />
+                        <TableColumn fx:id="apptTitleCol" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" style="-fx-alignment: CENTER;" text="Title" />
+                        <TableColumn fx:id="apptDescriptionCol" maxWidth="180.0" minWidth="180.0" prefWidth="180.0" style="-fx-alignment: CENTER;" text="Description" />
+                        <TableColumn fx:id="apptLocationCol" maxWidth="110.0" minWidth="110.0" prefWidth="110.0" style="-fx-alignment: CENTER;" text="Location" />
+                        <TableColumn fx:id="apptContactCol" maxWidth="80.0" minWidth="80.0" style="-fx-alignment: CENTER;" text="Contact" />
+                        <TableColumn fx:id="apptTypeCol" maxWidth="80.0" minWidth="80.0" style="-fx-alignment: CENTER;" text="Type" />
+                        <TableColumn fx:id="apptStartCol" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" style="-fx-alignment: CENTER;" text="Start" />
+                        <TableColumn fx:id="apptEndCol" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" style="-fx-alignment: CENTER;" text="End" />
+                        <TableColumn fx:id="apptCustIdCol" maxWidth="80.0" minWidth="80.0" style="-fx-alignment: CENTER;" text="Customer ID" />
+                        <TableColumn fx:id="apptUserIdCol" maxWidth="80.0" minWidth="80.0" style="-fx-alignment: CENTER;" text="User ID" />
+                    </columns>
+                </TableView>
+                <HBox layoutX="50.0" layoutY="582.0" prefHeight="40.0" prefWidth="800.0">
+                    <Button fx:id="addAppt" mnemonicParsing="false" onAction="#addApptHandler" text="Add Appointment">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </HBox.margin>
+                    </Button>
+                    <Button fx:id="updtAppt" mnemonicParsing="false" onAction="#updtApptHandler" text="Update Appointment">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </HBox.margin>
+                    </Button>
+                    <Button fx:id="delAppt" mnemonicParsing="false" onAction="#delApptHandler" text="Delete Appointment">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </HBox.margin>
+                    </Button>
+                    <Button fx:id="viewDetails" mnemonicParsing="false" onAction="#viewDetailsHandler" text="View Details">
+                        <HBox.margin>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </HBox.margin>
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                    </Button>
+                </HBox>
+                <Label fx:id="apptLabel" layoutX="455.0" layoutY="290.0" text="Appointments">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+                <Button fx:id="logout" layoutX="950.0" layoutY="620.0" mnemonicParsing="false" onAction="#logoutHandler" text="Logout" />
+                <ComboBox fx:id="custComboBox" layoutX="155.0" layoutY="343.0" onAction="#custFilter" prefWidth="150.0" />
+            </Pane>
+        </AnchorPane>
+    </Tab>
+    <Tab fx:id="addCustTab" closable="false" disable="true" text="Add Customer">
+    </Tab>
+    <Tab fx:id="updtCustTab" closable="false" disable="true" text="Update Customer">
+    </Tab>
+    <Tab fx:id="addApptTab" closable="false" disable="true" text="Add Appointment">
+    </Tab>
+    <Tab fx:id="updtApptTab" closable="false" disable="true" text="Update Appointment">
+    </Tab>
+    <Tab fx:id="reportsTab" closable="false" text="Reports">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <Pane prefHeight="675.0" prefWidth="1100.0">
+                <TableView fx:id="reportTotalTV" layoutX="125.0" layoutY="50.0" prefHeight="175.0" prefWidth="300.0">
+                    <columns>
+                        <TableColumn fx:id="rtTitleCol" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" style="-fx-alignment: CENTER;" text="Title" />
+                        <TableColumn fx:id="rtTypeCol" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" style="-fx-alignment: CENTER;" text="Type" />
+                        <TableColumn fx:id="rtMonthCol" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" style="-fx-alignment: CENTER;" text="Month" />
+                    </columns>
+                </TableView>
+                <Label fx:id="reportTotalLabel" layoutX="160.0" layoutY="15.0" text="Totals: Type &amp; Month">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+                <HBox layoutX="40.0" layoutY="225.0" prefHeight="50.0" prefWidth="460.0">
+                    <ComboBox fx:id="reportType" onAction="#reportTypeHandler" prefWidth="150.0">
+                        <HBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </HBox.margin>
+                    </ComboBox>
+                    <ComboBox fx:id="reportMonth" onAction="#reportMonthHandler" prefWidth="150.0">
+                        <HBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </HBox.margin>
+                    </ComboBox>
+                    <Label fx:id="totalLabel" text="Total">
+                        <HBox.margin>
+                            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                        </HBox.margin>
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                    </Label>
+                </HBox>
+                <TableView fx:id="reportChangesTV" layoutX="500.0" layoutY="50.0" prefHeight="175.0" prefWidth="560.0">
+                    <columns>
+                        <TableColumn fx:id="rcCustIdCol" maxWidth="80.0" minWidth="80.0" style="-fx-alignment: CENTER;" text="Customer ID" />
+                        <TableColumn fx:id="rcContactCol" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" style="-fx-alignment: CENTER;" text="Contact" />
+                        <TableColumn fx:id="rcTypeCol" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" style="-fx-alignment: CENTER;" text="Type" />
+                        <TableColumn fx:id="rcStartCol" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" style="-fx-alignment: CENTER;" text="Start" />
+                        <TableColumn fx:id="rcEndCol" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" style="-fx-alignment: CENTER;" text="End" />
+                        <TableColumn fx:id="rcCustNameCol" maxWidth="112.0" minWidth="112.0" prefWidth="112.0" style="-fx-alignment: CENTER;" text="Name" />
+                        <TableColumn fx:id="rcCustAddressCol" maxWidth="112.0" minWidth="112.0" prefWidth="112.0" style="-fx-alignment: CENTER;" text="Address" />
+                        <TableColumn fx:id="rcCustPostCol" maxWidth="112.0" minWidth="112.0" prefWidth="112.0" style="-fx-alignment: CENTER;" text="Postal Code" />
+                        <TableColumn fx:id="rcCustPhoneCol" maxWidth="112.0" minWidth="112.0" prefWidth="112.0" style="-fx-alignment: CENTER;" text="Phone" />
+                        <TableColumn fx:id="rcCustDivCol" maxWidth="112.0" minWidth="112.0" prefWidth="112.0" style="-fx-alignment: CENTER;" text="Division" />
+                    </columns>
+                </TableView>
+                <HBox layoutX="350.0" layoutY="325.0" prefHeight="50.0" prefWidth="450.0">
+                    <VBox prefHeight="50.0" prefWidth="100.0">
+                        <RadioButton fx:id="scheduleViewAll" mnemonicParsing="false" onAction="#reportViewAllHandler" selected="true" text="View All">
+                            <VBox.margin>
+                                <Insets top="20.0" />
+                            </VBox.margin>
+                            <toggleGroup>
+                                <ToggleGroup fx:id="scheduleFilter" />
+                            </toggleGroup>
+                        </RadioButton>
+                    </VBox>
+                    <VBox prefHeight="50.0" prefWidth="100.0">
+                        <RadioButton fx:id="scheduleByMonth" mnemonicParsing="false" onAction="#reportByMonthHandler" prefHeight="17.0" prefWidth="100.0" text="By Month" toggleGroup="$scheduleFilter">
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </VBox.margin>
+                        </RadioButton>
+                        <RadioButton fx:id="scheduleByWeek" mnemonicParsing="false" onAction="#reportByWeekHandler" prefHeight="17.0" prefWidth="117.0" text="By Week" toggleGroup="$scheduleFilter">
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </VBox.margin>
+                        </RadioButton>
+                    </VBox>
+                    <DatePicker fx:id="scheduleDatePicker" onAction="#reportDatePicked">
+                        <HBox.margin>
+                            <Insets left="30.0" top="15.0" />
+                        </HBox.margin>
+                    </DatePicker>
+                </HBox>
+                <TableView fx:id="scheduleTV" layoutX="50.0" layoutY="382.0" prefHeight="200.0" prefWidth="1000.0">
+                    <columns>
+                        <TableColumn fx:id="scheduleIdCol" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" style="-fx-alignment: CENTER;" text="ID" />
+                        <TableColumn fx:id="scheduleTitleCol" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" style="-fx-alignment: CENTER;" text="Title" />
+                        <TableColumn fx:id="scheduleDescriptionCol" maxWidth="400.0" minWidth="400.0" prefWidth="400.0" text="Description" />
+                        <TableColumn fx:id="scheduleTypeCol" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" style="-fx-alignment: CENTER;" text="Type" />
+                        <TableColumn fx:id="scheduleStartCol" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" style="-fx-alignment: CENTER;" text="Start" />
+                        <TableColumn fx:id="scheduleEndCol" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" style="-fx-alignment: CENTER;" text="End" />
+                        <TableColumn fx:id="scheduleCustIdCol" maxWidth="80.0" minWidth="80.0" style="-fx-alignment: CENTER;" text="Customer ID" />
+                    </columns>
+                </TableView>
+                <Label fx:id="scheduleLabel" layoutX="440.0" layoutY="290.0" text="Contact Schedule">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="contactComboBox" layoutX="155.0" layoutY="343.0" onAction="#contactFilter" prefWidth="150.0" />
+                <Button fx:id="scheduleDetails" layoutX="500.0" layoutY="590.0" mnemonicParsing="false" onAction="#reportDetailsHandler" text="View Details" />
+                <Button fx:id="reportLogout" layoutX="950.0" layoutY="620.0" mnemonicParsing="false" onAction="#logoutHandler" text="Logout" />
+                <HBox layoutX="660.0" layoutY="225.0" prefHeight="77.0" prefWidth="410.0">
+                    <VBox prefHeight="54.0" prefWidth="133.0">
+                        <RadioButton fx:id="changesToCust" mnemonicParsing="false" onAction="#changesToCustHandler" selected="true" text="Customer">
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </VBox.margin>
+                            <toggleGroup>
+                                <ToggleGroup fx:id="recordType" />
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="changesToAppt" mnemonicParsing="false" onAction="#changesToApptHandler" text="Appointment" toggleGroup="$recordType">
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </VBox.margin>
+                        </RadioButton>
+                    </VBox>
+                    <HBox prefHeight="74.0" prefWidth="278.0">
+                        <RadioButton fx:id="add" mnemonicParsing="false" onAction="#addHandler" selected="true" text="Add">
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="25.0" />
+                            </HBox.margin>
+                            <toggleGroup>
+                                <ToggleGroup fx:id="changeType" />
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="update" mnemonicParsing="false" onAction="#updateHandler" text="Update" toggleGroup="$changeType">
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="25.0" />
+                            </HBox.margin>
+                        </RadioButton>
+                        <RadioButton fx:id="delete" mnemonicParsing="false" onAction="#deleteHandler" text="Delete" toggleGroup="$changeType">
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="25.0" />
+                            </HBox.margin>
+                        </RadioButton>
+                    </HBox>
+                </HBox>
+                <Label fx:id="changesLabel" alignment="CENTER" layoutX="708.0" layoutY="15.0" text="Changes">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+            </Pane>
+        </AnchorPane>
+    </Tab>
+</TabPane>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.ApptController">
+    <Tab fx:id="loginTab" closable="false" disable="true" text="Login">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+    </Tab>
+    <Tab fx:id="mainTab" closable="false" disable="true" text="Main">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+    </Tab>
+    <Tab fx:id="addCustTab" closable="false" disable="true" text="Add Customer">
+    </Tab>
+    <Tab fx:id="updtCustTab" closable="false" disable="true" text="Update Customer">
+    </Tab>
+    <Tab fx:id="addApptTab" closable="false" disable="true" text="Add Appointment">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+    </Tab>
+    <Tab fx:id="updtApptTab" closable="false" text="Update Appointment">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <Pane prefHeight="675.0" prefWidth="900.0">
+                <VBox layoutX="320.0" layoutY="210.0" prefHeight="313.0" prefWidth="330.0">
+                    <TextField fx:id="apptId" alignment="CENTER" disable="true">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </VBox.margin>
+                    </TextField>
+                    <HBox prefHeight="23.0" prefWidth="200.0">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" />
+                        </VBox.margin>
+                        <ComboBox fx:id="startHour" onAction="#timeHandler" prefWidth="150.0">
+                            <HBox.margin>
+                                <Insets bottom="10.0" right="5.0" top="10.0" />
+                            </HBox.margin>
+                        </ComboBox>
+                        <ComboBox fx:id="startMin" onAction="#timeHandler" prefWidth="150.0">
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                            </HBox.margin>
+                        </ComboBox>
+                        <DatePicker fx:id="startDate">
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="5.0" top="10.0" />
+                            </HBox.margin>
+                        </DatePicker>
+                    </HBox>
+                    <HBox prefHeight="32.0" prefWidth="325.0">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" />
+                        </VBox.margin>
+                        <ComboBox fx:id="endHour" onAction="#timeHandler" prefWidth="150.0">
+                            <HBox.margin>
+                                <Insets bottom="10.0" right="5.0" top="10.0" />
+                            </HBox.margin>
+                        </ComboBox>
+                        <ComboBox fx:id="endMin" onAction="#timeHandler" prefWidth="150.0">
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                            </HBox.margin>
+                        </ComboBox>
+                        <DatePicker fx:id="endDate">
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="5.0" top="10.0" />
+                            </HBox.margin>
+                        </DatePicker>
+                    </HBox>
+                    <TextField fx:id="title" alignment="CENTER">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </VBox.margin>
+                    </TextField>
+                    <TextField fx:id="location" alignment="CENTER">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </VBox.margin>
+                    </TextField>
+                    <TextField fx:id="type" alignment="CENTER">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </VBox.margin>
+                    </TextField>
+                    <TextField fx:id="description" alignment="CENTER" prefHeight="52.0" prefWidth="314.0">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </VBox.margin>
+                    </TextField>
+                </VBox>
+                <HBox layoutX="325.0" layoutY="550.0" prefHeight="60.0" prefWidth="240.0">
+                    <Button fx:id="cancel" mnemonicParsing="false" onAction="#cancelHandler" prefHeight="40.0" prefWidth="100.0" text="Cancel">
+                        <HBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </HBox.margin>
+                    </Button>
+                    <Button fx:id="save" mnemonicParsing="false" onAction="#saveHandler" prefHeight="40.0" prefWidth="100.0" text="Save">
+                        <HBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </HBox.margin>
+                    </Button>
+                </HBox>
+                <VBox layoutX="375.0" layoutY="110.0" prefHeight="102.0" prefWidth="204.0">
+                    <ComboBox fx:id="custComboBox" prefHeight="29.0" prefWidth="173.0">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </VBox.margin>
+                    </ComboBox>
+                    <ComboBox fx:id="contactComboBox" prefHeight="22.0" prefWidth="174.0">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </VBox.margin>
+                    </ComboBox>
+                </VBox>
+                <Label fx:id="startEST" layoutX="650.0" layoutY="270.0" text="Start EST" />
+                <Label fx:id="endEST" layoutX="650.0" layoutY="325.0" text="End EST" />
+                <VBox layoutX="180.0" layoutY="120.0" prefHeight="352.0" prefWidth="186.0">
+                    <Label fx:id="custLabel" text="Customer" textAlignment="CENTER">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                        <VBox.margin>
+                            <Insets bottom="12.0" left="12.0" right="12.0" />
+                        </VBox.margin>
+                    </Label>
+                    <Label fx:id="contactLabel" text="Contact" textAlignment="CENTER">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                        <VBox.margin>
+                            <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                        </VBox.margin>
+                    </Label>
+                    <Label fx:id="idLabel" text="ID" textAlignment="CENTER">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                        <VBox.margin>
+                            <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                        </VBox.margin>
+                    </Label>
+                    <Label fx:id="startLabel" text="Start" textAlignment="CENTER">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                        <VBox.margin>
+                            <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                        </VBox.margin>
+                    </Label>
+                    <Label fx:id="endLabel" text="End" textAlignment="CENTER">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                        <VBox.margin>
+                            <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                        </VBox.margin>
+                    </Label>
+                    <Label fx:id="titleLabel" text="Title" textAlignment="CENTER">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                        <VBox.margin>
+                            <Insets bottom="12.0" left="12.0" right="12.0" top="23.0" />
+                        </VBox.margin>
+                    </Label>
+                    <Label fx:id="locationLabel" text="Location" textAlignment="CENTER">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                        <VBox.margin>
+                            <Insets bottom="12.0" left="12.0" right="12.0" top="8.0" />
+                        </VBox.margin>
+                    </Label>
+                    <Label fx:id="typeLabel" text="Type" textAlignment="CENTER">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                        <VBox.margin>
+                            <Insets bottom="12.0" left="12.0" right="12.0" top="8.0" />
+                        </VBox.margin>
+                    </Label>
+                    <Label fx:id="descriptionLabel" text="Description">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                        <VBox.margin>
+                            <Insets bottom="12.0" left="12.0" right="12.0" top="10.0" />
+                        </VBox.margin>
+                    </Label>
+                </VBox>
+                <Text fx:id="timePrompt" layoutX="40.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="100.0" />
+                <Label fx:id="apptLabel" layoutX="350.0" layoutY="50.0" text="Update Appointment" textAlignment="CENTER">
+                    <font>
+                        <Font size="24.0" />
+                    </font></Label>
+            </Pane>
+        </AnchorPane>
+    </Tab>
+    <Tab fx:id="reportsTab" closable="false" disable="true" text="Reports">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+    </Tab>
+</TabPane>

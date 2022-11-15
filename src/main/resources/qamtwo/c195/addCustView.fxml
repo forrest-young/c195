@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.CustController">
+    <Tab fx:id="loginTab" closable="false" disable="true" text="Login">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+    </Tab>
+    <Tab fx:id="mainTab" closable="false" disable="true" text="Main">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+    </Tab>
+    <Tab fx:id="addCustTab" closable="false" text="Add Customer">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <Pane layoutX="-6.0" layoutY="-2.0" prefHeight="675.0" prefWidth="900.0">
+                <VBox layoutX="205.0" layoutY="275.0" prefHeight="225.0" prefWidth="175.0">
+                    <Label fx:id="custIdLabel" text="Customer ID">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </VBox.margin>
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="custNameLabel" text="Name">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </VBox.margin>
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="custAddrLabel" text="Address">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </VBox.margin>
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="custPostLabel" text="Postal Code">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </VBox.margin>
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="custPhoneLabel" text="Phone">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </VBox.margin>
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Label>
+                </VBox>
+                <VBox layoutX="370.0" layoutY="280.0" prefHeight="225.0" prefWidth="300.0">
+                    <TextField fx:id="custId" alignment="CENTER" disable="true" style="-fx-alignment: CENTER;">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </VBox.margin>
+                    </TextField>
+                    <TextField fx:id="custName" alignment="CENTER" style="-fx-alignment: CENTER;">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </VBox.margin>
+                    </TextField>
+                    <TextField fx:id="custAddr" alignment="CENTER" style="-fx-alignment: CENTER;">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </VBox.margin>
+                    </TextField>
+                    <TextField fx:id="custPost" alignment="CENTER" style="-fx-alignment: CENTER;">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </VBox.margin>
+                    </TextField>
+                    <TextField fx:id="custPhone" alignment="CENTER" style="-fx-alignment: CENTER;">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </VBox.margin>
+                    </TextField>
+                </VBox>
+                <Label fx:id="ctryLabel" layoutX="291.0" layoutY="170.0" text="Country">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="ctryComboBox" layoutX="250.0" layoutY="200.0" onAction="#ctryComboHandler" prefWidth="150.0" />
+                <Label fx:id="divLabel" layoutX="494.0" layoutY="170.0" text="Division">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="divComboBox" layoutX="450.0" layoutY="200.0" prefWidth="150.0" />
+                <HBox layoutX="301.0" layoutY="526.0" prefHeight="60.0" prefWidth="240.0">
+                    <Button fx:id="cancel" mnemonicParsing="false" onAction="#cancelHandler" prefHeight="40.0" prefWidth="100.0" text="Cancel">
+                        <HBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </HBox.margin>
+                    </Button>
+                    <Button fx:id="save" mnemonicParsing="false" onAction="#saveHandler" prefHeight="40.0" prefWidth="100.0" text="Save">
+                        <HBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </HBox.margin>
+                    </Button>
+                </HBox>
+                <Label fx:id="custLabel" layoutX="320.0" layoutY="90.0" text="Add Customer">
+                    <font>
+                        <Font size="36.0" />
+                    </font>
+                </Label>
+            </Pane>
+        </AnchorPane>
+    </Tab>
+    <Tab fx:id="updtCustTab" closable="false" disable="true" text="Update Customer">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+    </Tab>
+    <Tab fx:id="addApptTab" closable="false" disable="true" text="Add Appointment">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+    </Tab>
+    <Tab fx:id="updtApptTab" closable="false" disable="true" text="Update Appointment">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+    </Tab>
+    <Tab fx:id="reportsTab" closable="false" disable="true" text="Reports">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+    </Tab>
+</TabPane>

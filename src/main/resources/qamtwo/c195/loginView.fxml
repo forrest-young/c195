@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.LoginController">
+    <Tab fx:id="loginTab" closable="false" text="Login">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+            <Label fx:id="loc" layoutX="27.0" layoutY="502.0" text="loc" textAlignment="CENTER" />
+            <Label fx:id="zoneId" layoutX="27.0" layoutY="526.0" text="zoneid" />
+            <VBox alignment="CENTER" layoutX="288.0" layoutY="164.0" prefHeight="200.0" prefWidth="225.0">
+                <Label fx:id="prompt" text="prompt" textAlignment="CENTER">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                    </VBox.margin>
+                </Label>
+                <TextField fx:id="username" alignment="CENTER">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </VBox.margin>
+                </TextField>
+                <PasswordField fx:id="password" alignment="CENTER">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </VBox.margin>
+                </PasswordField>
+                <Button fx:id="login" mnemonicParsing="false" onAction="#loginHandler">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </VBox.margin>
+                </Button>
+            </VBox>
+        </Pane>
+    </Tab>
+    <Tab fx:id="mainTab" closable="false" disable="true" text="Main">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+    </Tab>
+    <Tab fx:id="addCustTab" closable="false" disable="true" text="Add Customer">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+    </Tab>
+    <Tab fx:id="updtCustTab" closable="false" disable="true" text="Update Customer">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+    </Tab>
+    <Tab fx:id="addApptTab" closable="false" disable="true" text="Add Appointment">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+    </Tab>
+    <Tab fx:id="updtApptTab" closable="false" disable="true" text="Update Appointment">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+    </Tab>
+    <Tab fx:id="reportsTab" closable="false" disable="true" text="Reports">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+    </Tab>
+</TabPane>
