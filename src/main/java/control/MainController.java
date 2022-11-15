@@ -421,7 +421,6 @@ public class MainController implements Initializable {
 
     /**
      * Method used to delete a customer, if successful updates report
-     *
      */
     public void delCustHandler() {
         if (custTV.getSelectionModel().getSelectedItem() != null) {
@@ -447,7 +446,6 @@ public class MainController implements Initializable {
 
     /**
      * Method used to refresh main tables
-     *
      */
     public void viewAllHandler(){ refreshMainTables(); }
 
@@ -616,19 +614,16 @@ public class MainController implements Initializable {
 
     /**
      * Method used to filter appointments by calling refreshRCTable
-     *
      */
     public void updateHandler(){ refreshRCTable(); }
 
     /**
      * Method used to filter appointments by calling refreshRCTable
-     *
      */
     public void deleteHandler(){ refreshRCTable(); }
 
     /**
      * Method used to filter appointments by calling refreshSchedule, reselects scheduleViewAll radio button
-     *
      */
     public void contactFilter() {
         scheduleViewAll.setSelected(true);
@@ -637,7 +632,6 @@ public class MainController implements Initializable {
 
     /**
      * Method used to filter appointments by calling refreshSchedule
-     *
      */
     public void reportViewAllHandler(){ refreshSchedule(); }
 
@@ -662,7 +656,6 @@ public class MainController implements Initializable {
 
     /**
      * Method used to filter contact appointments by week, lambda is used for efficient mapping of timestamps from UTC to local
-     *
      */
     public void reportByWeekHandler() {
         if (scheduleDatePicker.getValue() == null) refreshSchedule();
